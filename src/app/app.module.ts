@@ -14,9 +14,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SafePipe } from './pipes/safe.pipe';
-import {DialogComponent, DialogModal} from './dashboard/dialog/dialog.component';
+import { DialogComponent, DialogModal } from './dashboard/dialog/dialog.component';
 // import {MatNativeDateModule} from '@angular/material';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { LogModule } from './log/log.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     DashboardComponent,
     SafePipe,
     DialogComponent,
-    DialogModal,
+    DialogModal
     // MatNativeDateModule
   ],
   entryComponents: [DialogComponent, DialogModal],
@@ -44,7 +46,8 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LogModule
   ],
   bootstrap: [AppComponent]
 })

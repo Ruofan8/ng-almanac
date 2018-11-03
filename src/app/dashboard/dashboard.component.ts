@@ -1,7 +1,7 @@
 import { Component, Sanitizer } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { RoomService, Room, WorkItem } from '../services/room.service';
+import { RoomService, Room, WorkItem } from '../services/room/room.service';
 
 @Component({
   selector: 'app-dashboard',
