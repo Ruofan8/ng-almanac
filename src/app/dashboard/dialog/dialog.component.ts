@@ -9,26 +9,31 @@ export interface DialogData {
  * @title Injecting data when opening a dialog
  */
 @Component({
-  selector: 'dialog-data-example',
-  templateUrl: 'dialog-data-example.html',
+  selector: 'app-dialog-component',
+  templateUrl: 'dialog.component.html',
 })
-export class DialogDataExample {
+export class DialogComponent {
   constructor(public dialog: MatDialog) {}
 
-  openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
+  openDialog(value) {
+    console.log(value);
+    if (value !== 'panda' || value !== 'unicorn') {
+      value = 'lion';
+    }
+    console.log(value);
+    this.dialog.open(DialogModal, {
       data: {
-        animal: 'panda'
+        animal: value
       }
     });
   }
 }
 
 @Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
+  selector: 'dialog-modal',
+  templateUrl: 'dialog-modal.html',
 })
-export class DialogDataExampleDialog {
+export class DialogModal {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
 

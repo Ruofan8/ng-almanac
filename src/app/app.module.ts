@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SafePipe } from './pipes/safe.pipe';
-import {DialogDataExample, DialogDataExampleDialog} from './dashboard/dialog-data-example';
+import {DialogComponent, DialogModal} from './dashboard/dialog/dialog.component';
 // import {MatNativeDateModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
@@ -23,11 +23,11 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
     AppComponent,
     DashboardComponent,
     SafePipe,
-    DialogDataExample,
-    DialogDataExampleDialog,
+    DialogComponent,
+    DialogModal,
     // MatNativeDateModule
   ],
-  entryComponents: [DialogDataExample, DialogDataExampleDialog],
+  entryComponents: [DialogComponent, DialogModal],
   imports: [
     BrowserModule,
     AppRoutingModule,
