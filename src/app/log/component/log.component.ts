@@ -7,16 +7,11 @@ import { SocketService, Socket } from 'src/app/services/sockets/sockets.service'
   styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
-  divMessages: HTMLDivElement;
-  tbMessage: HTMLInputElement;
-  btnSend: HTMLButtonElement;
-  username: number;
+  username: string;
+  messages = new Array<Socket>();
 
   ngOnInit() {
-    this.divMessages = document.querySelector('#divMessages');
-    this.tbMessage = document.querySelector('#tbMessage');
-    this.btnSend = document.querySelector('#btnSend');
-    this.username = new Date().getTime();
+    this.username = 'ruofan';
     if (this.socketService != null && this.socketService.socket == null) {
         this.socketService.socket = new Socket();
     }
@@ -26,17 +21,11 @@ export class LogComponent implements OnInit {
     this.updateResults(this.socketService.socket);
   }
   updateResults(socket: Socket) {
-    console.log(socket);
-    const messageContainer = document.createElement('div');
-    messageContainer.innerHTML =
-        `<div class='message-author'>${socket.type}</div><div>${socket.payload}</div>`;
-
-    this.divMessages.appendChild(messageContainer);
-    this.divMessages.scrollTop = this.divMessages.scrollHeight;
+    this.messages.push(socket);
   }
-  send() {
+  send(value: string) {
     this.socketService.socket.type = this.username;
-    this.socketService.socket.payload = this.tbMessage.value;
+    this.socketService.socket.payload = value;
     this.socketService.sendToHubSocket(this.socketService.socket);
     this.initSocketReceiver();
 

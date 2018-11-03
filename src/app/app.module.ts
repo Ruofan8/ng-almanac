@@ -15,7 +15,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SafePipe } from './pipes/safe.pipe';
 import { DialogComponent, DialogModal } from './dashboard/dialog/dialog.component';
-// import {MatNativeDateModule} from '@angular/material';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { LogModule } from './log/log.module';
@@ -27,7 +26,6 @@ import { LogModule } from './log/log.module';
     SafePipe,
     DialogComponent,
     DialogModal
-    // MatNativeDateModule
   ],
   entryComponents: [DialogComponent, DialogModal],
   imports: [

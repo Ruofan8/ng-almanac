@@ -1,8 +1,10 @@
-<div id="divMessages" class="messages">
+<mat-card>
+  <div *ngFor="let message of messages">
+    <div>{{ message.time | date:'h:mm a' | lowercase }} {{ message.type }}:</div>
+    <div>{{ message.payload }}</div>
   </div>
-  <div class="input-zone">
-      <label id="lblMessage" for="tbMessage">Message:</label>
-      <input id="tbMessage" class="input-zone-input" type="text" />
-      <button (click)="send()">Send</button>
-
-  </div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Type here..." #logInput>
+  </mat-form-field>
+  <button mat-raised-button (click)="send(logInput.value)">Send</button>
+</mat-card>

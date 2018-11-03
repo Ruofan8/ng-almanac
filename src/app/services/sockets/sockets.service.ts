@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HubConnection } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
-import { Observable } from 'rxjs';
 
 export class Socket {
-  type: number;
+  time: number;
+  type: string;
   payload: string;
 }
 
@@ -25,7 +25,8 @@ export class SocketService {
     await this.hubSocket.send('newMessage', item.type, item.payload);
   }
   retrieveSocketPayload() {
-    this.hubSocket.on('messageReceived', (type: number, payload: string) => {
+    this.hubSocket.on('messageReceived', (type: string, payload: string) => {
+      this.socket.time = Date.now();
       this.socket.type = type;
       this.socket.payload = payload;
     });
